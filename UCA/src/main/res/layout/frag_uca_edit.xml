@@ -1,0 +1,282 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back"
+    tools:context="jp.dev.juny.android.uca.UcaEditActivity$PlaceholderFragment">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/date_default"
+            android:textSize="15sp"
+            android:id="@+id/tv_edit_date"
+            android:textColor="@color/font_normal" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="@color/main"
+        android:layout_margin="1dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="17sp"
+            android:text="@string/condition"
+            android:textColor="@color/font_normal"
+            android:id="@+id/tv_edit_condition_label" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:adjustViewBounds="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/ic_edit_mayo_score"
+            android:src="@drawable/ic_mayo_score_good"
+            android:tint="@color/font_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/ic_edit_mayo_score"
+            android:layout_marginLeft="10dp"
+            android:text="@string/condition_excellent"
+            android:textSize="35sp"
+            android:textColor="@color/font_normal"
+            android:id="@+id/tv_edit_condition_value" />
+
+        <TextView
+            android:text="@string/mayo_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/tv_edit_mayo_score"
+            android:layout_alignParentBottom="true"
+            android:textSize="15sp"
+            android:textIsSelectable="false"
+            android:textColor="@color/font_normal"
+            android:id="@+id/tv_edit_mayo_score_label" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="30dp"
+            android:text="0"
+            android:textSize="15sp"
+            android:textColor="@color/font_normal"
+            android:id="@+id/tv_edit_mayo_score" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/sub_contents"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:adjustViewBounds="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="2dp"
+                android:id="@+id/ic_edit_blood"
+                android:src="@drawable/ic_blood"
+                android:tint="@color/font_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ic_edit_blood"
+                android:layout_marginTop="10dp"
+                android:text="@string/toilet_blood"
+                android:id="@+id/tv_edit_toilet_blood"
+                android:textSize="15sp"
+                android:textColor="@color/font_normal" />
+
+            <View android:id="@+id/Separator1"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/ic_edit_blood"
+                android:background="@color/font_normal"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="2dp">
+            </View>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/Separator1"
+                android:layout_marginTop="5dp"
+                android:entries="@array/array_toilet_blood"
+                android:id="@+id/spinner_edit_blood" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/sub_contents"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:adjustViewBounds="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="2dp"
+                android:id="@+id/ic_edit_doctor_opinion"
+                android:src="@drawable/ic_doctor_opinion"
+                android:tint="@color/font_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ic_edit_doctor_opinion"
+                android:layout_marginTop="10dp"
+                android:text="@string/doctor_opinion"
+                android:id="@+id/tv_edit_doctor_opinion"
+                android:textSize="15sp"
+                android:textColor="@color/font_normal" />
+
+            <View android:id="@+id/Separator2"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/ic_edit_doctor_opinion"
+                android:background="@color/font_normal"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="2dp">
+            </View>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/Separator2"
+                android:layout_marginTop="5dp"
+                android:entries="@array/array_doctor_opinion"
+                android:id="@+id/spinner_edit_doctor_opinion"
+                android:focusable="true" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@color/sub_contents"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:adjustViewBounds="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="2dp"
+            android:id="@+id/ic_edit_toilet_count"
+            android:src="@drawable/ic_toilet_count"
+            android:tint="@color/font_normal" />
+
+        <TextView
+            android:text="@string/toilet_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ic_edit_toilet_count"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:id="@+id/tv_edit_toilet_count_label"
+            android:textColor="@color/font_normal" />
+
+        <View android:id="@+id/Separator3"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/ic_edit_toilet_count"
+            android:background="@color/font_normal"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="2dp">
+        </View>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/tv_edit_toilet_count"
+            android:layout_alignBottom="@+id/tv_edit_toilet_count"
+            android:layout_marginRight="20dp"
+            android:text="@string/toilet_count_down"
+            android:id="@+id/btn_edit_toilet_count_down"
+            android:textColor="@color/font_normal"
+            android:singleLine="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/toilet_count_default"
+            android:id="@+id/tv_edit_toilet_count"
+            android:textSize="40sp"
+            android:textColor="@color/font_normal" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_edit_toilet_count"
+            android:layout_alignBottom="@+id/tv_edit_toilet_count"
+            android:layout_marginLeft="20dp"
+            android:text="@string/toilet_count_up"
+            android:textColor="@color/font_normal"
+            android:id="@+id/btn_edit_toilet_count_up" />
+    </RelativeLayout>
+
+</LinearLayout>

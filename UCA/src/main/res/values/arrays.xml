@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_toilet_blood">
+        <item>出血は無し</item>
+        <item>たまに少量出血</item>
+        <item>ほぼ毎回の出血</item>
+        <item>毎回、ほぼ血液</item>
+    </string-array>
+    <string-array name="array_doctor_opinion">
+        <item>完全な寛解</item>
+        <item>活動が軽度</item>
+        <item>活動が中等度</item>
+        <item>活動が高度</item>
+    </string-array>
+</resources>

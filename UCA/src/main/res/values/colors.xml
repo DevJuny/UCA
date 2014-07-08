@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main">#7FBCAD</color>
+    <color name="back">#7FBCAD</color>
+    <color name="main1">#79D1B0</color>
+    <color name="back1">#79D1B0</color>
+    <color name="font_title">#E26F6C</color>
+    <color name="font_normal">#F5F5F5</color>
+    <color name="color1">#ff66cdaa</color>
+    <color name="color2">#ffff89c4</color>
+    <color name="color3">#5EBABA</color>
+
+    <color name="sub_contents">#00b190</color>
+
+    <color name="sub_contents1">#5EBABA</color>
+    <color name="sub_contents2">#16a085</color>
+</resources>
