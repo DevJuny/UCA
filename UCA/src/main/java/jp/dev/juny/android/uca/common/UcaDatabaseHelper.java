@@ -10,28 +10,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * UcaDatabaseHelper
+ *
+ * UCAのデータベースアクセスクラス
+ *
  * Created by jun on 2014/06/25.
  */
 public class UcaDatabaseHelper extends SQLiteOpenHelper {
 
+    // データベース名
     private static final String DATABASE_NAME = "ucadatabase.db";
 
+    // データベースバージョン
     private static final int DATABASE_VERSION = 1;
 
+    // 基本テーブル名
     private static final String TABLE_UCA_BASE = "UCA_BASE";
 
+    /* カラム名 */
+    // 日付（PK）
     private static final String COL_DATE = "date";
-
+    // Mayoスコア
     private static final String COL_MAYO_SCORE = "mayo_score";
-
+    // メモ
     private static final String COL_MEMO = "memo";
-
+    // トイレ回数
     private static final String COL_TOILET_COUNT = "toilet_count";
-
+    // 出血状態
     private static final String COL_BLOOD_STATUS = "blood_status";
-
+    // 医師所見
     private static final String COL_DOCTOR_OPINION = "doctor_opinion";
 
+    /* SQL文 */
+    // テーブル作成
     private static final String SQL_CREATE_TABLE = ""
             + "create table " + TABLE_UCA_BASE
             + "( "
@@ -43,28 +54,67 @@ public class UcaDatabaseHelper extends SQLiteOpenHelper {
             + COL_DOCTOR_OPINION + " INTEGER "
             + ");";
 
+    // テーブル削除
     private static final String SQL_DROP_TABLE = ""
             + "drop table if exists " + TABLE_UCA_BASE + ";";
 
-    public UcaDatabaseHelper(Context context) {
+    /**
+     * コンストラクタ
+     *
+     * 基底クラスに処理はお任せ
+     *
+     * @param context
+     */
+    public UcaDatabaseHelper(final Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /**
+     * onCreate
+     *
+     * 基底クラスからの呼び出し <br/>
+     * @param db
+     */
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(final SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_TABLE);
     }
 
+    /**
+     * onUpgrade
+     *
+     * 基底クラスからの呼び出し <br/>
+     * @param db
+     */
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(final SQLiteDatabase db, final int oldVersion, final int newVersion) {
         db.execSQL(SQL_DROP_TABLE);
         onCreate(db);
     }
 
-    // TODO 引数はBean化して、ビルダーパターンで生成させる
-    public Long insert(final String date, final Integer mayoScore, final String memo, final Integer toiletCount, final Integer bloodStatus, final Integer doctorOpinion){
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
+    /**
+     * データ登録処理
+     *
+     * DeleteInsertにより既存レコードも上書きで登録する
+     *
+     * @param date
+     * @param mayoScore
+     * @param memo
+     * @param toiletCount
+     * @param bloodStatus
+     * @param doctorOpinion
+     * @return
+     */
+    // TODO 引数はBean化して、ビルダーパターン生成にしたい
+    public Long insert(final String date,
+                       final Integer mayoScore,
+                       final String memo,
+                       final Integer toiletCount,
+                       final Integer bloodStatus,
+                       final Integer doctorOpinion) {
+        // 書き込み可でDBインスタンス取得
+        final SQLiteDatabase db = getWritableDatabase();
+        final ContentValues values = new ContentValues();
         values.put(COL_DATE, date);
         values.put(COL_MAYO_SCORE, mayoScore);
         values.put(COL_MEMO, memo);
@@ -72,29 +122,47 @@ public class UcaDatabaseHelper extends SQLiteOpenHelper {
         values.put(COL_BLOOD_STATUS, bloodStatus);
         values.put(COL_DOCTOR_OPINION, doctorOpinion);
         Long result = -1l;
-        if(db != null){
+        if (db != null) {
+            // Deleteしてから登録を行う
             delete(date);
+            // 登録
             result = db.insert(TABLE_UCA_BASE, null, values);
         }
         return result;
     }
 
-    public void delete(final String date){
-        SQLiteDatabase db = getWritableDatabase();
+    /**
+     * プライマリキーをキーにレコード削除を行う
+     * @param date
+     */
+    public void delete(final String date) {
+        // 書き込み可でDBインスタンス取得
+        final SQLiteDatabase db = getWritableDatabase();
         db.delete(TABLE_UCA_BASE, COL_DATE + " = " + date, null);
     }
 
-    // TODO 戻り値はBean化する
-    public List<Object> findByDate(final String date){
-        SQLiteDatabase db = getReadableDatabase();
-        String query = ""
+    /**
+     * プライマリキーをキーにレコード取得を行う
+     * @param date
+     * @return
+     */
+    // TODO 戻り値はBean化したい
+    public List<Object> findByDate(final String date) {
+        // ReadOnlyでDBインスタンス取得
+        final SQLiteDatabase db = getReadableDatabase();
+
+        // select文
+        final String query = ""
                 + "select * from " + TABLE_UCA_BASE
                 + " where " + COL_DATE + " = " + date + ";";
 
-        Cursor c = db.rawQuery(query, null);
+        // データ取得
+        final Cursor c = db.rawQuery(query, null);
 
+        // カーソルから各値を取得
         final List<Object> list = new ArrayList<Object>();
-        if(c.moveToFirst()){
+        if (c.moveToFirst()) {
+            // TODO マジックナンバーやめる
             list.add(c.getString(0));
             list.add(c.getInt(1));
             list.add(c.getString(2));
