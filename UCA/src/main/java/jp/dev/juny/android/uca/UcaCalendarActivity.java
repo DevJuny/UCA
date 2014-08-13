@@ -94,7 +94,14 @@ public class UcaCalendarActivity extends AbstractUcaActivity {
         if (id == R.id.action_recordings) {
 //            Intent intent = new Intent(this, UcaEditActivity.class);
 //            startActivity(intent);
-            finish();
+            // メインである記録機能が選択された場合、Activityの全スタックをクリアして遷移する
+            // (クリアしないとハードキーの戻るボタン押下時にめんどくさくなる)
+            final Intent intent = new Intent(this, UcaEditActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        } else if (id == R.id.action_chart) {
+            // グラフ表示時は通常遷移
+            startActivity(new Intent(this, UcaChartActivity.class));
         }
         // R.id.action_settingsは親クラスで処理
         return super.onOptionsItemSelected(item);

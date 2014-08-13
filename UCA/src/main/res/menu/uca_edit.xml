@@ -9,12 +9,17 @@
         android:showAsAction="always|withText" />
     <item android:id="@+id/action_calendar"
         android:title="@string/action_calendar"
-        android:orderInCategory="100"
+        android:orderInCategory="101"
         android:icon="@android:drawable/ic_menu_month"
         android:showAsAction="always|withText" />
+    <item android:id="@+id/action_chart"
+        android:title="@string/action_chart"
+        android:orderInCategory="102"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:showAsAction="ifRoom|withText" />
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
-        android:orderInCategory="101"
+        android:orderInCategory="103"
         android:icon="@android:drawable/ic_menu_preferences"
         android:showAsAction="ifRoom|withText" />
 </menu>

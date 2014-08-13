@@ -78,6 +78,9 @@ public class UcaViewActivity extends AbstractUcaActivity {
             // カレンダーが選択された場合はIntentによる移動ではなく
             // 本Activityのスタックを終わらせて前画面遷移により移動する
             finish();
+        } else if (id == R.id.action_chart) {
+            // グラフ表示時は通常遷移
+            startActivity(new Intent(this, UcaChartActivity.class));
         }
         // R.id.action_settingsは親クラスで処理
         return super.onOptionsItemSelected(item);

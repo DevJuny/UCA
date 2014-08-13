@@ -13,27 +13,24 @@
     <string name="doctor_opinion">医師所見</string>
     <string name="title_activity_uca_calendar">UcaCalendarActivity</string>
     <string name="title_activity_uca_view">UcaViewActivity</string>
-
     <string name="data_update">データ修正</string>
-
     <string name="condition">Condition</string>
-
     <string name="condition_excellent">Excellent!!</string>
     <string name="condition_good">Good!</string>
     <string name="condition_average">Average</string>
     <string name="condition_poor">Poor..</string>
     <string name="condition_bad">Bad...</string>
-
     <string name="action_recordings">Recordings</string>
     <string name="action_calendar">Calendar</string>
+    <string name="action_chart">Chart</string>
     <string name="action_settings">Settings</string>
-
     <string name="dialog_toilet_count_title">潰瘍性大腸炎以前の排便回数</string>
     <string name="dialog_toilet_count_message">Mayoスコアの計算用に潰瘍性大腸炎になる前の1日の平均排便回数を設定してください</string>
     <string name="dialog_toilet_count_ok">OK</string>
     <string name="dialog_toilet_count_cancel">NG</string>
-
     <string name="toast_msg_saved">保存しました</string>
     <string name="toast_msg_selected_future">未来の日付は選択できません</string>
+    <string name="title_activity_uca_graph">UcaGraphActivity</string>
+    <string name="title_activity_uca_chart">UcaChartActivity</string>
 
 </resources>

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -172,5 +174,35 @@ public class UcaDatabaseHelper extends SQLiteOpenHelper {
         }
 
         return list;
+    }
+
+    /**
+     * 全レコード取得を行う
+     * @return
+     */
+    // TODO 戻り値はBean化したい
+    public List<List<Object>> findAll() {
+        // ReadOnlyでDBインスタンス取得
+        final SQLiteDatabase db = getReadableDatabase();
+
+        // select文
+        final String query = ""
+                + "select " +
+                COL_DATE + ", " + COL_MAYO_SCORE + " from " + TABLE_UCA_BASE
+                + " order by " + COL_DATE + ";";
+        // データ取得
+        final Cursor c = db.rawQuery(query, null);
+
+        // カーソルから各値を取得
+        final List<List<Object>> retList = new ArrayList<List<Object>>();
+        while (c.moveToNext()) {
+            // TODO マジックナンバーやめる
+            final List<Object> innerList = new ArrayList<Object>();
+            innerList.add(c.getString(0));
+            innerList.add(c.getInt(1));
+            retList.add(innerList);
+        }
+
+        return retList;
     }
 }

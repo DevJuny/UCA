@@ -69,7 +69,11 @@ public class UcaEditActivity extends AbstractUcaActivity {
         int id = item.getItemId();
         // カレンダー選択時はカレンダーActivityへ
         if (id == R.id.action_calendar) {
+            // TODO
             startActivity(new Intent(this, UcaCalendarActivity.class));
+        }else if (id == R.id.action_chart) {
+            // TODO
+            startActivity(new Intent(this, UcaChartActivity.class));
         }
         // R.id.action_settingsは親クラスで処理
         return super.onOptionsItemSelected(item);

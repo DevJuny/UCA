@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jp.dev.juny.android.uca" >
+    package="jp.dev.juny.android.uca"
+    android:versionCode="2"
+    android:versionName="1.1.0" >
 
     <application
         android:allowBackup="true"
+        android:debuggable="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:debuggable="false" >
+        android:theme="@style/AppTheme" >
         <activity
             android:name="jp.dev.juny.android.uca.UcaEditActivity"
             android:label="@string/app_name"
-            android:uiOptions="splitActionBarWhenNarrow"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:uiOptions="splitActionBarWhenNarrow" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,14 +24,23 @@
         <activity
             android:name="jp.dev.juny.android.uca.UcaCalendarActivity"
             android:label="@string/app_name"
-            android:uiOptions="splitActionBarWhenNarrow"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:uiOptions="splitActionBarWhenNarrow" >
         </activity>
         <activity
             android:name="jp.dev.juny.android.uca.UcaViewActivity"
             android:label="@string/app_name"
-            android:uiOptions="splitActionBarWhenNarrow"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:uiOptions="splitActionBarWhenNarrow" >
+        </activity>
+        <activity
+            android:name="jp.dev.juny.android.uca.UcaChartActivity"
+            android:label="@string/title_activity_uca_chart"
+            android:uiOptions="splitActionBarWhenNarrow" >
+        </activity>
+        <activity
+            android:name="jp.dev.juny.android.uca.UcaGraphActivity"
+            android:label="@string/title_activity_uca_graph" >
         </activity>
     </application>
 
