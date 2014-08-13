@@ -38,10 +38,6 @@
             android:label="@string/title_activity_uca_chart"
             android:uiOptions="splitActionBarWhenNarrow" >
         </activity>
-        <activity
-            android:name="jp.dev.juny.android.uca.UcaGraphActivity"
-            android:label="@string/title_activity_uca_graph" >
-        </activity>
     </application>
 
 </manifest>
